@@ -1,0 +1,14 @@
+name: Azure Login
+on: [push]
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to Azure using service principal
+        uses: azure/login@v1
+        with:
+          tenantId: 967b892a-0a0f-46fa-a945-d01fb591a6a5
+          clientId: 4110064a-6dde-4f3d-b9a7-25f6bd9a7615
+          clientSecret: ${{ secrets.AZURE_LOGIN }}
